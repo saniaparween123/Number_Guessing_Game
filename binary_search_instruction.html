@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions - Magical Search Game</title>
+    <link rel="stylesheet" href="binary_search.css">
+</head>
+<body>
+    <div class="container" id="gameContainer" style="display:none;">
+        <h1 id="guessText"></h1>
+        <p id="guessCount">Guesses made: 0</p>
+        <div class="button-container">
+            <button id="lowerBtn" class="btn">Lower</button>
+            <button id="equalBtn" class="btn">Equal</button>
+            <button id="higherBtn" class="btn">Higher</button>
+        </div>
+    </div>
+    
+    <div class="container" id="instructionsContainer">
+        <h1>Magical Search Game</h1>
+        <ul class="star-list">
+            <li>Provide the starting point and ending point.</li>
+            <li>Write down a number between your starting and ending point.</li>
+            <li>The computer will ask questions based on the Magical search algorithm.</li>
+            <li>The computer will guess your number!</li>
+        </ul >
+        <button id="startGameBtn" class="btn" onclick="showRangeInput()">Start Game</button>
+    </div>    
+    
+
+        <!-- Container for the input fields (initially hidden) -->
+    <div id="rangeInputContainer" class="container" style="display: none;">
+        <h2>Enter Range for Game</h2>
+        <input type="number" id="startInput" placeholder="Enter starting point" />
+        <input type="number" id="endInput" placeholder="Enter ending point" />
+        <button onclick="submitRange()" class="btn">Submit</button>
+    </div>
+
+    <!-- Start Game Button (outside of the hidden container) -->
+    
+
+    <div id="resultContainer" style="display:none;">
+        <h2 id="resultMessage"></h2>
+        <button id="resetGameBtn" class="btn">Play Again</button>
+    </div>
+    <script src="binary_search.js"></script>
+</body>
+</html>

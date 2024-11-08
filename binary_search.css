@@ -1,0 +1,276 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #aa8dc9, #a2c1f5); /* Multi-color gradient background */
+    background-size: 300% 300%; /* Enable animation for gradient */
+    animation: gradientAnimation 15s ease infinite; /* Animation for background */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent overflow */
+    color: white; /* White text for all body elements */
+    position: relative; /* To position symbols */
+}
+
+/* Centering button container */
+.button-container {
+    display: flex; /* Enables Flexbox */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center; /* Centers buttons vertically */
+    gap: 10px; /* Space between buttons */
+    padding: 20px; /* Optional: padding around the container */
+}
+
+/* Styling individual buttons (optional, for aesthetics) */
+.button-container .btn {
+    padding: 10px 20px;
+    background-color: #2883a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-container .btn:hover {
+    background-color: #2873a7; /* Darker color on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.button-container .btn:active {
+    transform: scale(0.95); /* Slightly shrink on click */
+}
+
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Adding random symbols in the background */
+.symbol {
+    position: absolute;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.2);
+    animation: floatSymbol 10s linear infinite;
+    user-select: none;
+}
+
+/* Floating animation for symbols */
+@keyframes floatSymbol {
+    from { transform: translateY(0px) rotate(0deg); }
+    to { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global text styles */
+h1, h2, h3, p {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, color 0.3s;
+}
+
+h1:hover, h2:hover, h3:hover, p:hover {
+    transform: scale(1.02);
+}
+
+/* Container styles for main content */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to right, #d45bec, #5594e6);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.btn {
+    background-color: #2883a7;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background-color: #2873a7;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Result container styles */
+#resultContainer {
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional styles for guess text and counts */
+#guessText, #guessCount, #resultMessage {
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Instructions Container Styles */
+#instructionsContainer {
+    background: linear-gradient(to right, #d45bec, #5594e6);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Ordered list styles */
+#instructionsContainer ol {
+    padding-left: 20px;
+}
+
+#instructionsContainer li {
+    margin: 10px 0;
+    transition: transform 0.3s;
+}
+
+#instructionsContainer li:hover {
+    transform: translateY(-3px);
+}
+
+/* Game Container Styles */
+#gameContainer {
+    background: linear-gradient(to right, #d45bec, #5594e6);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s forwards;
+}
+
+#gameContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #d45bec, #5594e6);
+    background-size: 300% 300%;
+    animation: gradientAnimation 15s ease infinite;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+#gameContainer > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Feedback message styles */
+.feedback {
+    font-size: 24px;
+    color: white;
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: black;
+}
+
+/* Result container alignment and styling */
+#resultContainer {
+    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Button styling for the reset button */
+#resetGameBtn {
+    padding: 10px 20px;
+    background-color: #2883a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+ul.star-list {
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 0; /* Remove default left padding */
+}
+
+ul.star-list li {
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Center-align items vertically */
+    margin-bottom: 8px; /* Space between list items */
+}
+
+ul.star-list li::before {
+    content: "★"; /* Unicode star symbol */
+    color: white; /* Star color */
+    font-size: 18px; /* Adjust star size */
+    margin-right: 8px; /* Space between star and text */
+    display: inline-block; /* Keep star inline with text */
+}
